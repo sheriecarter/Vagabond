@@ -1,4 +1,4 @@
-module SessionHelper
+module SessionsHelper
 
   def login(user)
     session[:user_id] = user.id
@@ -18,5 +18,5 @@ module SessionHelper
   def logout
     @current_user = session[:user_id] = nil
   end
-  
+
 end
