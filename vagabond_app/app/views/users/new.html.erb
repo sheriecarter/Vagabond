@@ -1,4 +1,4 @@
-
+<div class="m-x-auto newuser" style="width: 400px;">
 <%= form_for @user do |f| %>
   <div>
     <%= f.text_field :name, placeholder: "Full Name" %>
@@ -12,5 +12,7 @@
   <div>
     <%= f.password_field :password, placeholder: "Password" %>
   </div>
+  <br>
   <%= f.submit "Sign Up" %>
 <% end %>
+</div>
