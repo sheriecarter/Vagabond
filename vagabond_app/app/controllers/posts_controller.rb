@@ -12,8 +12,9 @@ class PostsController < ApplicationController
     @post = Post.create(post_params)
 
     current_user.posts << @post
+    City.find_by_id(1).posts << @post
 
-    redirect_to post_path(@post)
+    redirect_to city_post_path(1,@post)
   end
 
   def show

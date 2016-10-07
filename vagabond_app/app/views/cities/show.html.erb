@@ -5,9 +5,8 @@
 <div>
   <%= image_tag "sf.png" %>
 </div>
-
+<br>
+<%= button_to "New Post", new_city_post_path(@city), method: "get" %>
 <% @city.posts.sort_by{|post| [post['updated_at']]}.reverse.each do |post| %>
-<h3> <%= link_to post.title, post_path(post) %></h3>
+<h3> <%= link_to post.title, city_post_path(@city, post) %></h3>
 <% end %>
-
-  
