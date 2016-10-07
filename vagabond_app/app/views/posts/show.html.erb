@@ -1,6 +1,10 @@
-<h1>Post Page</h1>
+
+
 <div>
-<%= @post.title %>
+<h2><%= @post.title %></h2>
+</div>
+<div>
+by <%= User.find_by_id(@post.user_id).name %>
 </div>
 <div>
 <%= @post.body %>
