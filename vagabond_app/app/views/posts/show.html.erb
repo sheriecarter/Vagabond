@@ -1,0 +1,10 @@
+
+<div>
+<h2><%= @post.title %></h2>
+</div>
+<div>
+by <%= User.find_by_id(@post.user_id).name %>
+</div>
+<div>
+<%= @post.body %>
+</div>
