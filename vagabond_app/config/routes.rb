@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   get "/posts/:id", to: "posts#show", as: "post"
   post "/posts", to: "posts#create"
 
+  get "/cities", to: "cities#index"
+  
 end
