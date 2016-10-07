@@ -4,11 +4,13 @@
   <%= @user.current_city %>
   <br>
   Joined <%= @user.created_at %>
-
+<%= button_to "Edit Profile", edit_user_path, method: "get" %>
 <br>
 <h2>Posts:</h2>
   <% @user.posts.each do |post| %>
   <h3> <%= link_to post.title, post_path(post) %> </h3>
   <% end %>
+  <br>
+  <%= button_to "New Post", new_post_path, method: "get" %>
 
 </div>
