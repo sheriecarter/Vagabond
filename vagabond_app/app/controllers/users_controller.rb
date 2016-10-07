@@ -9,10 +9,9 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
-    if @user.save
-      redirect_to user_path(@user)
-    end
+    @user = User.create(user_params)
+    login(@user)
+      redirect_to @user
   end
 
   def show
@@ -29,7 +28,7 @@ class UsersController < ApplicationController
     user = User.find_by_id(user_id)
     user.update_attributes(user_params)
     redirect_to user_path(user)
-  
+
   end
 
 
