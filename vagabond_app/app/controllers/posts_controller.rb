@@ -10,12 +10,26 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params)
+
     current_user.posts << @post
-    redirect_to post_path(@post)
+    City.find_by_id(1).posts << @post
+
+    redirect_to city_post_path(1,@post)
   end
 
   def show
     @post = Post.find_by_id(params[:id])
+  end
+  def edit
+    post_id = params[:id]
+    @post = Post.find_by_id(post_id)
+  end
+
+  def update
+    post_id = params[:id]
+    post = Post.find_by_id(post_id)
+    post.update_attributes(post_params)
+    redirect_to post_path(post)
   end
 
   private
