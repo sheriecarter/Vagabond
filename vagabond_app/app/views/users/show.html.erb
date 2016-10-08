@@ -1,6 +1,20 @@
 <div>
-  Welcome, <%= @user.name %> 
-  <%= @user.current_city %>
-  <%= @user.created_at %>
+
+  <%= @user.name %>
+  <br>
+  Currently in <%= @user.current_city %>
+  <br>
+  Joined <%= @user.created_at %>
+  <% if @user.id == current_user.id %>
+    <%= button_to "Edit Profile", edit_user_path, method: "get" %>
+  <% end %>
+  <br>
+  <h2>Posts:</h2>
+  <% if @user.posts.length  < 1 %>
+    <%= @user.id == current_user.id ? "You have no posts yet! Add one by pressing the button below" : "This user has no posts" %>
+  <% end %>
+  <% @user.posts.each do |post| %>
+    <h3> <%= link_to post.title, post_path(post) %> </h3>
+  <% end %>
 
 </div>
