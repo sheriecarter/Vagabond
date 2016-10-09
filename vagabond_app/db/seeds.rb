@@ -11,7 +11,7 @@ User.destroy_all
 
 person1 = User.create({name: "Person 1", current_city: "San Francisco", email: "person1@gmail.com", password: "password"})
 person2 = User.create({name: "Person 2", current_city: "New York", email: "person2@gmail.com", password: "password"})
-person3 = User.create({name: "Person 3", current_city: "Los Angeles", email: "person3@gmail.com", password: ""})
+person3 = User.create({name: "Person 3", current_city: "Los Angeles", email: "person3@gmail.com", password: "password"})
 
 posta = Post.create({title: "Post A", body: "Post A content"})
 postb = Post.create({title: "Post B", body: "Post B content"})

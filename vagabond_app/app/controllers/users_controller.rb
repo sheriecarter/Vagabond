@@ -35,12 +35,7 @@ class UsersController < ApplicationController
     user = User.find_by_id(user_id)
     user.update_attributes(user_params)
     redirect_to user_path(user)
-
   end
-
-
-
-
 
   private
   def user_params

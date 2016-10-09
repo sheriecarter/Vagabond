@@ -20,6 +20,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by_id(params[:id])
   end
+
   def edit
     post_id = params[:id]
     @post = Post.find_by_id(post_id)
