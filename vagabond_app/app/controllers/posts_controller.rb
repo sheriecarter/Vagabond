@@ -6,13 +6,14 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @city = City.find_by_id(params[:city_id])
   end
 
   def create
     @post = Post.create(post_params)
-
+    current_city = City.find_by_id(params[:city_id])
     current_user.posts << @post
-    City.find_by_id(1).posts << @post
+    current_city.posts << @post if current_city
 
     redirect_to city_post_path(1,@post)
   end
