@@ -1,5 +1,4 @@
 <div>
-
   <%= @user.name %>
   <br>
   Currently in <%= @user.current_city %>
@@ -16,5 +15,8 @@
   <% @user.posts.each do |post| %>
     <h3> <%= link_to post.title, user_post_path(@user, post) %> </h3>
   <% end %>
-
+  <br>
+  <% if @user.id == current_user.id %>
+    <%= button_to "New Post", new_post_path, method: "get" %>
+  <% end %>
 </div>

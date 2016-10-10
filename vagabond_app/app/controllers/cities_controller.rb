@@ -15,10 +15,8 @@ class CitiesController < ApplicationController
   def create
     @city = City.create(city_params)
 
-    current_user.city << @city
-    City.find_by_id(1).posts << @post
 
-    redirect_to city_path(1,@post)
+    redirect_to city_path(@city)
 
   end
 
@@ -26,7 +24,7 @@ class CitiesController < ApplicationController
     city_id = params[:id]
     @city = City.find_by_id(city_id)
     @city.delete
-    redirect_to city_path(city_id)
+    redirect_to cities_path
   end
 
   private
