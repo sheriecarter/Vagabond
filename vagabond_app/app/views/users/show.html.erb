@@ -14,7 +14,7 @@
     <%= @user.id == current_user.id ? "You have no posts yet! Add one by pressing the button below" : "This user has no posts" %>
   <% end %>
   <% @user.posts.each do |post| %>
-    <h3> <%= link_to post.title, post_path(post) %> </h3>
+    <h3> <%= link_to post.title, user_post_path(@user, post) %> </h3>
   <% end %>
 
 </div>
