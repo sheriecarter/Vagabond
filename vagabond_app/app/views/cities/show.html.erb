@@ -3,7 +3,7 @@
 </div>
 
 <div>
-  <h2> <%= @city.try(:image) %> </h2>
+  <%= image_tag "sf.png" %>
 </div>
 <br>
 <%= button_to "New Post", new_city_post_path(@city, @post), method: "get" %>
