@@ -21,11 +21,17 @@ class PostsController < ApplicationController
     elsif !current_city
       redirect_to user_path(current_user)
     else
-      @post = Post.create(post_params)
-      current_user.posts << @post if current_user
-      current_city.posts << @post if current_city
+      @post = Post.new(post_params)
+      if @post.save
 
-      redirect_to city_post_path(current_city,@post)
+        current_user.posts << @post if current_user
+        current_city.posts << @post if current_city
+
+        redirect_to city_post_path(current_city,@post)
+      else
+        flash[:error]= @post.errors.full_messages
+        render :new
+      end
     end
   end
 
@@ -42,13 +48,18 @@ class PostsController < ApplicationController
   def update
     post_id = params[:id]
     current_city = City.find_by_id(params[:city_id]) || nil
-    post = Post.find_by_id(post_id)
-    post.update_attributes(post_params)
+    @post = Post.find_by_id(post_id)
+    if @post.update_attributes(post_params)
      if current_city
-       redirect_to city_post_path(current_city, post)
+       redirect_to city_post_path(current_city, @post)
      else
-       redirect_to post_path(post)
+       redirect_to post_path(@post)
      end
+
+   else
+     flash[:error]= @post.errors.full_messages
+     render :edit
+   end
   end
 
   def destroy
