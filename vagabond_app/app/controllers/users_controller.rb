@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
 
     if @user.save
+
       login(@user)
       redirect_to user_path(@user)
     end
@@ -24,7 +25,8 @@ class UsersController < ApplicationController
   def edit
     user_id = params[:id]
     @user = User.find_by_id(user_id)
-    if @user.id != current_user.id
+
+    if @user != current_user
       redirect_to user_path(@user)
     end
   end
@@ -34,12 +36,7 @@ class UsersController < ApplicationController
     user = User.find_by_id(user_id)
     user.update_attributes(user_params)
     redirect_to user_path(user)
-
   end
-
-
-
-
 
   private
   def user_params
