@@ -27,6 +27,9 @@ Rails.application.routes.draw do
   get "/cities/new", to: "cities#new", as: "new_city"
   get "/cities/:id", to: "cities#show", as: "city"
 
+  delete "/cities/:id", to: "cities#destroy", as: "destroy_city"
+
+
   resources :users do
     resources :posts
   end

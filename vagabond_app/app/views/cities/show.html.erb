@@ -10,3 +10,4 @@
 <% @city.posts.sort_by{|post| [post['updated_at']]}.reverse.each do |post| %>
 <h3> <%= link_to post.title, city_post_path(@city, post) %></h3>
 <% end %>
+  <%= button_to 'Delete City', destroy_city_path(@city), method: :delete, data: {confirm: "Are you sure you want to delete #{ @city.name }?"} %>

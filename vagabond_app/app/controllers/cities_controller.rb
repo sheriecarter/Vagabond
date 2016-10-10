@@ -22,6 +22,13 @@ class CitiesController < ApplicationController
 
   end
 
+  def destroy
+    city_id = params[:id]
+    @city = City.find_by_id(city_id)
+    @city.delete
+    redirect_to city_path(city_id)
+  end
+
   private
   def city_params
     params.require(:city).permit(:name, :image)
