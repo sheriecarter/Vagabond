@@ -1,0 +1,11 @@
+<h1>Add a New City</h1>
+
+<%= form_for @city do |f| %>
+  <div>
+    <%= f.text_field :name, placeholder: "City name" %>
+  </div><br>
+  <div>
+    <%= f.text_field :image, placeholder: "Image URL" %>
+  </div><br>
+  <%= f.submit "Add City" %>
+<% end %>
