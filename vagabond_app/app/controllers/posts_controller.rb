@@ -7,15 +7,26 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @city = City.find_by_id(params[:city_id])
+    if !current_user
+      redirect_to posts_path
+    elsif !@city
+      redirect_to user_path(current_user)
+    end
   end
 
   def create
-    @post = Post.create(post_params)
-    current_city = City.find_by_id(params[:city_id])
-    current_user.posts << @post
-    current_city.posts << @post if current_city
+  current_city = City.find_by_id(params[:city_id])
+    if !current_user
+      redirect_to login_path
+    elsif !current_city
+      redirect_to user_path(current_user)
+    else
+      @post = Post.create(post_params)
+      current_user.posts << @post if current_user
+      current_city.posts << @post if current_city
 
-    redirect_to city_post_path(current_city,@post)
+      redirect_to city_post_path(current_city,@post)
+    end
   end
 
   def show
@@ -45,8 +56,6 @@ class PostsController < ApplicationController
     @post = Post.find_by_id(post_id)
     current_city = City.find_by_id(params[:city_id])
     @post.delete
-    p current_city
-    p "***************************"
     user_id = current_user.id
     if params[:city_id]
       redirect_to city_path(params[:city_id])
