@@ -6,7 +6,7 @@
   <h2> <%= @city.try(:image) %> </h2>
 </div>
 <br>
-<%= button_to "New City", new_city_path(@city), method: "get" %>
+<%= button_to "New Post", new_post_path(@post), method: "get" %>
 <% @city.posts.sort_by{|post| [post['updated_at']]}.reverse.each do |post| %>
 <h3> <%= link_to post.title, city_post_path(@city, post) %></h3>
 <% end %>
