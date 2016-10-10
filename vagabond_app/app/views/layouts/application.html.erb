@@ -27,12 +27,16 @@
           <% end %>
         </ul>
 
+
       </div>
     </nav>
     <% flash.each do |name, msg| %>
-    <p>
-      <small> <%= name.capitalize %>: <%= msg %> </small>
-    </p>
+
+    <div class="alert <%= bootstrap_class_for(name) %> fade in">
+      <button class="close" data-dismiss="alert">×</button>
+      <p><%= msg %></p>
+    </div>
+
     <% end %>
     <%= yield %>
   </body>

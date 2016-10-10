@@ -1,7 +1,18 @@
-<h1>Post Page</h1>
+
+
 <div>
-<%= @post.title %>
+<h2><%= @post.title %></h2>
+</div>
+<div>
+by <%= User.find_by_id(@post.user_id).name %>
 </div>
 <div>
 <%= @post.body %>
 </div>
+<% if @post.user_id == current_user.id %>
+  <%= button_to "Edit Post", edit_post_path, method: "get" %>
+<% end %>
+<br>
+<% if @post.user_id == current_user.id %>
+  <%= button_to 'Delete Post', destroy_post_path(@post), method: :delete, data: {confirm: "Are you sure you want to delete #{ @post.title }?"} %>
+<% end %>
