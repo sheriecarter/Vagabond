@@ -18,8 +18,10 @@ class PostsController < ApplicationController
   end
 
   def show
+    @user = User.find_by_id(params[:user_id])
     @post = Post.find_by_id(params[:id])
   end
+
   def edit
     post_id = params[:id]
     @post = Post.find_by_id(post_id)
@@ -30,6 +32,15 @@ class PostsController < ApplicationController
     post = Post.find_by_id(post_id)
     post.update_attributes(post_params)
     redirect_to post_path(post)
+  end
+
+  def destroy
+    post_id = params[:id]
+    @post = Post.find_by_id(post_id)
+    @post.delete
+
+    user_id = current_user.id
+    redirect_to user_path(user_id)
   end
 
   private

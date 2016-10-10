@@ -1,7 +1,11 @@
-Cities
 
-<ul>
- <% @cities.each do |city| %>
-   <li><%= city.name %></li>
- <% end %>
-</ul>
+
+<h1>Cities</h1><br>
+<%= button_to "New City", new_city_path, method: "get" %>
+<br>
+  <% @cities.each do |city| %>
+    <div>
+      <h3><%= link_to city.name, city_path(city) %></h3>
+    </div>
+  <br>
+<% end %>
