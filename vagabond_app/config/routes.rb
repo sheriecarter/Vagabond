@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  get 'errors/not_found'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "users#index"
+  root to: "cities#index"
 
   get "/login", to: "sessions#new"
   post "/sessions", to: "sessions#create"
@@ -38,5 +40,6 @@ Rails.application.routes.draw do
     resources :posts
   end
 
+  match "/404", :to => "errors#not_found", :via => :all
 
 end
