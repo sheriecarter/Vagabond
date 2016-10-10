@@ -15,6 +15,22 @@
  *= require_self
 
  */
- .body {
-   background-color: #743f3f;
+ body {
+   background-color: #dddddd;
  }
+
+ .navbar {
+   background-color: #8a274a;
+   color: white;
+ }
+
+ footer{
+   background-color: white;
+   color: #8a274a;
+   height: 200px;
+
+ }
+.homephoto {
+  height: 50px;
+  max-width: 100px;
+}

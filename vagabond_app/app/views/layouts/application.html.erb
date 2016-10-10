@@ -30,14 +30,25 @@
 
       </div>
     </nav>
+    <!-- <div class="homephoto">
+      <%= image_tag "italy.png" %>
+    </div> -->
+
     <% flash.each do |name, msg| %>
 
     <div class="alert <%= bootstrap_class_for(name) %> fade in">
       <button class="close" data-dismiss="alert">×</button>
       <p><%= msg %></p>
     </div>
+    <div>
+      <%= image_tag "italy.png" %>
+    </div>
 
     <% end %>
     <%= yield %>
+
+
   </body>
+
+
 </html>
