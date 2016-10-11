@@ -2,12 +2,14 @@
 </div>
 
 <div class="holder">
-<h2> <%= @city.try(:name) %></h2>
+<h2> <%= @city.try(:name) %></h2> <%= rating_for @city, "city", disable_after_rate: true, city_avg: true%>
   <center><%= image_tag @city.image, height: 500, width: 800 %></center><br>
     <% if current_user && admin %>
     <%= button_to 'Delete City', destroy_city_path(@city), method: :delete, data: {confirm: "Are you sure you want to delete #{ @city.name }?"}, class: "btn btn-danger" %>
     <% end %>
-      City Rating  : <%= rating_for @city, 'city' %>
+<% if current_user %>
+      Rate This City  : <%= rating_for @city, 'city', half_show: true, stars: 6,enable_half: true, hints: ['bad', 'poor', 'regular', 'good', 'super fun'],cancel_hint: 'Cancel this vote!'%>
+<% end %>
 </div>
 <hr>
 <div class="holder">
