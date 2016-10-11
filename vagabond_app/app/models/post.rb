@@ -4,5 +4,5 @@ class Post < ApplicationRecord
 
   validates :title, length: { in:1..200 }
   validates :body, length: { minimum: 1 }
-  ratyrate_rateable "city"
+
 end

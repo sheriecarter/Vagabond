@@ -15,12 +15,12 @@ class UsersController < ApplicationController
 
       login(@user)
       redirect_to user_path(@user)
-    end
   else
 
     flash[:error]= @user.errors.full_messages
     render :new
-  
+  end
+
 
   end
 

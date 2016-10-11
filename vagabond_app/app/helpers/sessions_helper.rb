@@ -10,11 +10,7 @@ module SessionsHelper
   end
 
   def admin
-    if @current_user
-      @current_user.admin
-    else
-      false
-    end
+    current_user && current_user.admin
   end
 
   def logged_in?
