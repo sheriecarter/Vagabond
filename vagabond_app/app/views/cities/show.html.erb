@@ -3,10 +3,8 @@
 </div>
 
 <div>
-  <%= image_tag @city.image if @city.image %>
-  <% if current_user && current_user.admin %>
-    <%= button_to 'Delete City', destroy_city_path(@city), method: :delete, data: {confirm: "Are you sure you want to delete #{ @city.name }?"}%>
-  <% end %>
+  <center><%= image_tag @city.image, height: 500, width: 800 %><center>
+    <%= image_tag @city.image if @city.image %>
 </div>
 <br>
 <hr>
