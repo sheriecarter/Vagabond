@@ -6,5 +6,5 @@ class User < ApplicationRecord
     @user ? @user.authenticate(params[:password]) : false
   end
   validates :email, uniqueness:true
-
+  ratyrate_rater
 end

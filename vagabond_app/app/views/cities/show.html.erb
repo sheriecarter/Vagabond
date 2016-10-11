@@ -24,8 +24,11 @@
   <% end %>
   <hr>
   <% @city.posts.sort_by{|post| [post['updated_at']]}.reverse.each do |post| %>
-  <h3> <%= link_to post.title, city_post_path(@city, post) %></h3>
-  <h5> Posted by: <%= User.find_by_id(post.user_id).name %> </h5>
-  <h4> <%= post.body[0,30] << "..." %> </h4>
-  <% end %>
+   <h3> <%= link_to post.title, city_post_path(@city, post) %></h3>
+   <h5> <strong>Posted by:</strong> <%= User.find_by_id(post.user_id).name %> </h5>
+   <h5> <strong>Created:</strong> <%= post.created_at %> </h5>
+   <h4> <em><%= post.body.length > 180 ? post.body[0,180] << "..." : post.body %></em> </h4>
+   <% end %>
+
+
 </div>
