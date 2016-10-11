@@ -4,7 +4,7 @@
   <br>
   Currently in <%= @user.current_city %>
   <br>
-  Joined <%= @user.created_at %>
+  Joined <%= @user.created_at.localtime.to_formatted_s(:long_ordinal) %>
   <% if @user == current_user %>
     <%= button_to "Edit Profile", edit_user_path, method: "get" %>
   <% end %>

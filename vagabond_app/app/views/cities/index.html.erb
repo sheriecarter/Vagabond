@@ -1,7 +1,9 @@
 
 
 <h1>Cities</h1><br>
+<% if current_user && current_user.admin %>
 <%= button_to "New City", new_city_path, method: "get" %>
+<% end %>
 <br>
   <% @cities.each do |city| %>
     <div>

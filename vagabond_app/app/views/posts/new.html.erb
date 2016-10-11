@@ -1,4 +1,6 @@
-<h1>New Post Page</h1>
+<% if @city %>
+<h2> New Post For <%= @city.name %> </h2>
+<% end %>
 
 <%= form_for [@city, @post] do |f| %>
   <div>
