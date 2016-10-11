@@ -4,7 +4,7 @@
 <div class="holder">
 <h2> <%= @city.try(:name) %></h2>
   <center><%= image_tag @city.image, height: 500, width: 800 %></center>
-    <% if current_user && current_user.admin %>
+    <% if current_user && admin %>
       <%= button_to 'Delete City', destroy_city_path(@city), method: :delete, data: {confirm: "Are you sure you want to delete #{ @city.name }?"}%>
     <% end %>
 </div>

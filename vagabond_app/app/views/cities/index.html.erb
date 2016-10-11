@@ -1,7 +1,7 @@
 
 
 <h1>Cities</h1><br>
-<% if current_user && current_user.admin %>
+<% if current_user &&admin %>
 <%= button_to "New City", new_city_path, method: "get" %>
 <% end %>
 <br>
