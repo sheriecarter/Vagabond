@@ -1,32 +1,10 @@
-<div class="post container">
-  <div class="row">
-    <div class="col-xs-8">
-    <div>
-      <small><%= link_to @user.name, user_path(@post.user_id) %>
-      <%= " from " + @user.current_city if User.find_by_id(@post.user_id).current_city %></small>
-    </div>
-      <h2 class="post-head"><%= @post.title %></h2>
-    </div>
-    <div class="col-xs-4">
-      <small>Created <%= @post.created_at.localtime.to_formatted_s(:long_ordinal) %></small>
-      <br>
-      <small><%= "Edited " + @post.updated_at.localtime.to_formatted_s(:long_ordinal) if @post.updated_at.to_s != @post.created_at.to_s %></small>
-    </div>
-  </div>
-  <p>
-    <%= link_to @city.name, city_path(@city.id) if @city %>
-  </p>
-  <div>
-  <p><%= @post.body %></p>
-  </div>
-  <br>
-  <div class="button-area">
-  <% if @user == current_user %>
-    <%= button_to "Edit Post", edit_post_path, method: "get" %>
-  <% end %>
-  <% if @user == current_user  ||admin %>
-    <%= button_to 'Delete Post', destroy_post_path(@post), method: :delete, data: {confirm: "Are you sure you want to delete #{ @post.title }?"} %>
-  <% end %>
-  <br>
-  </div>
+
+<div>
+<h2><%= @post.title %></h2>
+</div>
+<div>
+by <%= User.find_by_id(@post.user_id).name %>
+</div>
+<div>
+<%= @post.body %>
 </div>
