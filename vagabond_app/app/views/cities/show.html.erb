@@ -8,7 +8,7 @@
 <br>
 <hr>
 <% if current_user %>
-  <%= button_to "New Post", new_city_post_path(@city, @post), method: "get" %>
+  <%= button_to "New Post", new_city_post_path(@city, @post), method: "get", class: "btn btn-info" %>
 <% else %>
   <h3>
    <%= link_to "Log In", login_path %>
@@ -19,6 +19,8 @@
 <% end %>
 <hr>
 <% @city.posts.sort_by{|post| [post['updated_at']]}.reverse.each do |post| %>
-<h3> <%= link_to post.title, city_post_path(@city, post) %></h3>
+<h3> <%= link_to post.title, city_post_path(@city, post) %> </h3>
+<h5> Posted by: <%= post.user_id %> </h5>
+<h4> <%= post.body[0,30] << "..." %> </h4>
 <% end %>
-  <%= button_to 'Delete City', destroy_city_path(@city), method: :delete, data: {confirm: "Are you sure you want to delete #{ @city.name }?"}%>
+  <%= button_to 'Delete City', destroy_city_path(@city), method: :delete, data: {confirm: "Are you sure you want to delete #{ @city.name }?"}, class: "btn btn-danger" %>
