@@ -16,6 +16,12 @@ class UsersController < ApplicationController
       login(@user)
       redirect_to user_path(@user)
     end
+  else
+
+    flash[:error]= @user.errors.full_messages
+    render :new
+  
+
   end
 
   def show
@@ -36,6 +42,12 @@ class UsersController < ApplicationController
     user = User.find_by_id(user_id)
     user.update_attributes(user_params)
     redirect_to user_path(user)
+  end
+
+  def destroy
+    @user = User.find_by_id params[:id]
+    @user.destroy
+    redirect_to root_path
   end
 
   private
