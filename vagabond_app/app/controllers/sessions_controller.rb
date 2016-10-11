@@ -9,17 +9,17 @@ class SessionsController < ApplicationController
     @user = User.confirm(user_params)
     if @user
       login(@user)
-      flash[:notice] = "Log In WOO!"
+      flash[:notice] = "Successfully logged in as #{@user.name}!"
       redirect_to @user
     else
-      flash[:error] = "Uh Oh!  Spaghetti-Os"
+      flash[:error] = "There was an error logging in."
       redirect_to login_path
     end
   end
 
   def destroy
     session[:user_id]=nil
-    flash[:notice]= "Your'e Outta Here!"
+    flash[:notice]= "Successfully logged out."
     redirect_to root_path
   end
 
