@@ -25,7 +25,7 @@
   <hr>
   <% @city.posts.sort_by{|post| [post['updated_at']]}.reverse.each do |post| %>
   <h3> <%= link_to post.title, city_post_path(@city, post) %></h3>
-  <h5> Posted by: <%= post.user_id %> </h5>
+  <h5> Posted by: <%= User.find_by_id(post.user_id).name %> </h5>
   <h4> <%= post.body[0,30] << "..." %> </h4>
   <% end %>
 </div>
