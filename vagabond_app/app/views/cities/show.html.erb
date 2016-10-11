@@ -1,26 +1,31 @@
 <div>
-<h2> <%= @city.try(:name) %></h2>
 </div>
 
-<div>
-  <%= image_tag "sf.png" %>
+<div class="holder">
+<h2> <%= @city.try(:name) %></h2>
+  <center><%= image_tag @city.image, height: 500, width: 800 %></center>
+    <% if current_user && admin %>
+    <%= button_to 'Delete City', destroy_city_path(@city), method: :delete, data: {confirm: "Are you sure you want to delete #{ @city.name }?"}, class: "btn btn-danger" %>
+    <% end %>
 </div>
 <br>
 <hr>
-<% if current_user %>
-  <%= button_to "New Post", new_city_post_path(@city, @post), method: "get", class: "btn btn-info" %>
-<% else %>
-  <h3>
-   <%= link_to "Log In", login_path %>
-   or
-   <%= link_to "Sign Up", new_user_path %>
-   to add a post
-   </h3>
-<% end %>
-<hr>
-<% @city.posts.sort_by{|post| [post['updated_at']]}.reverse.each do |post| %>
-<h3> <%= link_to post.title, city_post_path(@city, post) %> </h3>
-<h5> Posted by: <%= post.user_id %> </h5>
-<h4> <%= post.body[0,30] << "..." %> </h4>
-<% end %>
-  <%= button_to 'Delete City', destroy_city_path(@city), method: :delete, data: {confirm: "Are you sure you want to delete #{ @city.name }?"}, class: "btn btn-danger" %>
+<div class="holder">
+  <% if current_user %>
+    <%= button_to "New Post", new_city_post_path(@city, @post), method: "get", class: "btn btn-info" %>
+
+  <% else %>
+    <h3>
+     <%= link_to "Log In", login_path %>
+     or
+     <%= link_to "Sign Up", new_user_path %>
+     to add a post
+     </h3>
+  <% end %>
+  <hr>
+  <% @city.posts.sort_by{|post| [post['updated_at']]}.reverse.each do |post| %>
+  <h3> <%= link_to post.title, city_post_path(@city, post) %></h3>
+  <h5> Posted by: <%= post.user_id %> </h5>
+  <h4> <%= post.body[0,30] << "..." %> </h4>
+  <% end %>
+</div>

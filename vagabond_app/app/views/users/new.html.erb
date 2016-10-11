@@ -1,19 +1,19 @@
 <div class="m-x-auto newuser" style="width: 400px;">
 <%= form_for @user do |f| %>
   <div>
-    <span class="label label-default">Name</span><%= f.text_field :name, placeholder: "Full Name" %>
+    <span class="label label-default"></span><%= f.text_field :name, placeholder: "Full Name" %>
   </div>
   <br>
   <div>
-    <span class="label label-default">Current City</span><%= f.text_field :current_city, placeholder: "Current City" %>
+    <span class="label label-default"></span><%= f.text_field :current_city, placeholder: "Current City" %>
   </div>
   <br>
   <div>
-    <span class="label label-default">Email</span><%= f.text_field :email, placeholder: "Email" %>
+    <span class="label label-default"></span><%= f.text_field :email, placeholder: "Email" %>
   </div>
   <br>
   <div>
-    <span class="label label-default">Password</span><%= f.password_field :password, placeholder: "Password" %>
+    <span class="label label-default"></span><%= f.password_field :password, placeholder: "Password" %>
   </div>
   <br>
   <%= f.submit "Sign Up" %>

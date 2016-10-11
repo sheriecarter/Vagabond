@@ -32,3 +32,10 @@ person2.posts << postc
 person3.posts << postd
 person3.posts << poste
 person3.posts << postf
+
+city1.posts << posta
+city1.posts << postb
+city2.posts << postc
+city2.posts << postd
+city3.posts << poste
+city3.posts << postf
