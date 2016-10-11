@@ -10,7 +10,7 @@
     <div class="col-xs-4">
       <small>Created <%= @post.created_at.localtime.to_formatted_s(:long_ordinal) %></small>
       <br>
-      <small><%= "Edited " + @post.updated_at.localtime.to_formatted_s(:long_ordinal) if @post.updated_at != @post.created_at %></small>
+      <small><%= "Edited " + @post.updated_at.localtime.to_formatted_s(:long_ordinal) if @post.updated_at.to_s != @post.created_at.to_s %></small>
     </div>
   </div>
   <p>
