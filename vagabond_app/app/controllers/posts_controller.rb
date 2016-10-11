@@ -2,6 +2,9 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    if !admin
+      redirect_to root_path
+    end
   end
 
   def new

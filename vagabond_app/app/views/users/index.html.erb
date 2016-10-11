@@ -3,3 +3,15 @@
  <%= image_tag "rollinghills.jpeg", size: "1200x550", class: "profile" %>
 </div>
 <center>
+
+<% if admin %>
+<div class="container">
+  <h2>Admin Tools</h2>
+  <br>
+  <h3><%= link_to "All Posts", posts_path %>
+  <h3>Users:</h3>
+  <% @users.each do |user| %>
+  <h3><%= link_to user.name, user_path(user) %> </h3>
+  <% end %>
+</div>
+<% end %>
