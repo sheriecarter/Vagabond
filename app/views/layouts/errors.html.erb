@@ -9,27 +9,6 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <p class="navbar-brand">Vagabond</p>
-        </div>
-
-        <ul class="nav navbar-nav navbar-right">
-          <% if current_user %>
-          <li><%= link_to "Profile", user_path(current_user) %></li>
-          <li><%= link_to "Log Out", logout_path %></li>
-
-
-          <% else %>
-          <li><%= link_to "Log In", login_path %></li>
-          <li><%= link_to "Sign Up", new_user_path %></li>
-          <% end %>
-        </ul>
-
-
-      </div>
-    </nav>
-<%= yield %>
+    <%= yield %>
   </body>
 </html>

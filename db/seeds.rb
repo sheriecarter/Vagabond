@@ -64,14 +64,14 @@ person2.posts << post2
 person2.posts << post5
 person3.posts << post3
 person3.posts << post6
-person4.posts <<
+person4.posts << post7
 person4.posts << post8
 person4.posts << post9
 
 
 city1.posts << post1
 city1.posts << post2
-city1.posts <<
+city1.posts << post7
 city2.posts << post5
 city2.posts << post6
 city2.posts << post8
