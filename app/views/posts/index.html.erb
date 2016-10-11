@@ -1,9 +1,10 @@
-<h1>Posts</h1><br>
-<%= button_to "New Post", new_post_path, method: "get" %>
+<h1>Posts</h1>
 <br>
   <% @posts.each do |post| %>
     <div>
       <h3><%= link_to post.title, post_path(post) %></h3>
+      <h4> <strong>Posted by:</strong> <%= User.find_by_id(post.user_id).name if post.user_id %> </h5>
+      <h4> <strong>City:</strong> <%= City.find_by_id(post.city_id).name if post.city_id %> </h5>
     </div>
   <br>
 <% end %>

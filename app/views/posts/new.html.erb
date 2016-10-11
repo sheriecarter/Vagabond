@@ -1,11 +1,15 @@
-<h1>New Post Page</h1>
+<% if @city %>
+<div class="newPostForm">
+<h2> New Post For <%= @city.name %> </h2>
+<% end %>
 
-<%= form_for @post do |f| %>
-  <div>
-    <%= f.text_field :title, placeholder: "Title" %>
+<%= form_for [@city, @post] do |f| %>
+  <div id="postFormTitle">
+    <%= f.text_field :title, placeholder: "Title", size: "50x10" %>
   </div><br>
   <div>
-    <%= f.text_field :body, placeholder: "Post body" %>
+    <%= f.text_area :body, placeholder: "Post body", size: "100x10" %>
   </div><br>
-  <%= f.submit "Add Post" %>
+  <%= f.submit "Add Post", class: "btn btn-success" %>
+<div>
 <% end %>
