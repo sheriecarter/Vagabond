@@ -5,6 +5,9 @@ class CitiesController < ApplicationController
 
   def new
     @city = City.new
+    if !admin
+      redirect_to root_path
+    end
   end
 
 

@@ -16,7 +16,7 @@
   <% if @user.posts.length  < 1 %>
     <%= @user == current_user ? "You have no posts yet! Add one by pressing the button below" : "This user has no posts" %>
   <% end %>
-  <% @user.posts.each do |post| %>
+  <% @user.posts.sort_by{|post| [post['updated_at']]}.reverse.each do |post| %>
     <h3> <%= link_to post.title, user_post_path(@user, post) %> </h3>
   <% end %>
 
