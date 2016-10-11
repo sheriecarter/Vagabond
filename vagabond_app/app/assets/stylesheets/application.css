@@ -15,6 +15,11 @@
  *= require_self
 
  */
+
+body {
+  background-color: #c0ffee;
+}
+
  #profile {
   /*width: 100%;*/
   border-radius: 40px;
@@ -31,16 +36,6 @@
    border-radius: initial;
 
 }
-
-
-  #profile {
-   /*width: 100%;*/
-   border-radius: 40px;
- }
-
- body {
-   background-color: #c0ffee;
- }
 
 .post {
   border: 1px solid black;
