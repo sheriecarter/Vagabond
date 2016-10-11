@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'errors/not_found'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "cities#index"
+  root to: "users#index"
 
   get "/login", to: "sessions#new"
   post "/sessions", to: "sessions#create"
@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
   delete "/posts/:id", to: "posts#destroy", as: "destroy_post"
 
-  get "/cities", to: "cities#index"
+  get "/cities", to: "cities#index", as: "cities"
   get "/cities/new", to: "cities#new", as: "new_city"
   get "/cities/:id", to: "cities#show", as: "city"
 

@@ -15,6 +15,49 @@
  *= require_self
 
  */
- .body {
-   background-color: #743f3f;
+ #profile {
+  /*width: 100%;*/
+  border-radius: 40px;
+}
+
+  .navbar-brand{
+    font-size: 35px;
+  }
+
+ #profile.form-control {
+   -webkit-border-radius: initial;
+   -moz-border-radius: initial;
+   -o-border-radius: initial;
+   border-radius: initial;
+
+}
+
+
+  #profile {
+   /*width: 100%;*/
+   border-radius: 40px;
  }
+
+ body {
+   background-color: #c0ffee;
+ }
+
+ p1{
+   color: #777;
+ }
+
+
+ #about {
+   font-size: 16px;
+ }
+
+ .fancy {
+   display: block;
+   content: "";
+   height: 30px;
+   margin-top: -31px;
+   border-style: solid;
+   border-color: #8c8b8b;
+   border-width: 0 0 1px 0;
+   border-radius: 20px;
+}
