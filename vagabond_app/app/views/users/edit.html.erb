@@ -1,20 +1,26 @@
 
+<div class="m-x-auto newuser" style="width: 300px; height: 300px;">
 
+  <h3>Edit Profile</h3>
 
-<% if @user.id == current_user.id %>
-  <%= form_for @user do |f| %>
-    <div>
-      <%= f.text_field :name, placeholder: "Full Name" %>
-    </div>
-    <div>
-      <%= f.text_field :current_city, placeholder: "Current City" %>
-    </div>
-    <div>
-      <%= f.text_field :email, placeholder: "Email" %>
-    </div>
-
-    <%= f.submit "Save User Changes" %>
+  <% if @user.id == current_user.id %>
+    <%= form_for @user do |f| %>
+      <div>
+        <span class="label label-default"></span><%= f.text_field :name, placeholder: "Full Name", size: "35x10" %>
+      </div>
+      <br>
+      <div>
+        <span class="label label-default"></span><%= f.text_field :current_city, placeholder: "Current City", size: "35x10" %>
+      </div>
+      <br>
+      <div>
+        <span class="label label-default"></span><%= f.text_field :email, placeholder: "Email", size: "35x10" %>
+      </div>
+      <br>
+      <div class="userSubmitButton"><%= f.submit "Submit", class: "btn btn-secondary" %></div>
+    <% end %>
+  <% else %>
+    Something messed up :(
   <% end %>
-<% else %>
-  Something messed up :(
-<% end %>
+
+</div>
