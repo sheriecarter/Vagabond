@@ -33,7 +33,7 @@ class PostsController < ApplicationController
         redirect_to city_post_path(current_city,@post)
       else
         flash[:error]= @post.errors.full_messages
-        render :new
+        redirect_to new_city_post_path(current_city)
       end
     end
   end

@@ -12,13 +12,12 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
 
     if @user.save
-
       login(@user)
       redirect_to user_path(@user)
   else
 
     flash[:error]= @user.errors.full_messages
-    render :new
+    redirect_to new_user_path
   end
 
 
