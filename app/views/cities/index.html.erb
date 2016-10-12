@@ -1,0 +1,14 @@
+
+
+<h1 class="pageTitle">Explore These Cities</h1><br>
+<% if current_user &&admin %>
+<div class="button"><%= button_to "Add a new city", new_city_path, method: "get", class: "btn btn-success" %></div>
+<% end %>
+
+<br>
+  <% @cities.each do |city| %>
+    <div>
+      <h3 class="cityLink"><%= link_to city.name, city_path(city) %></h3>
+    </div>
+  <br>
+<% end %>

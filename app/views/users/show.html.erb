@@ -1,0 +1,23 @@
+<div>
+
+  <%= @user.name %>
+  <br>
+  Currently in <%= @user.current_city %>
+  <br>
+  Joined <%= @user.created_at.localtime.to_formatted_s(:long_ordinal) %>
+  <% if @user == current_user %>
+    <%= button_to "Edit Profile", edit_user_path, method: "get" %>
+  <% end %>
+  <% if current_user && admin %>
+    <%= button_to 'Remove User', destroy_user_path(@user), method: :delete, data: {confirm: "Are you sure you want to delete #{ @user.name }?"}%>
+  <% end %>
+  <br>
+  <h2>Posts:</h2>
+  <% if @user.posts.length  < 1 %>
+    <%= @user == current_user ? "You have no posts yet!" : "This user has no posts" %>
+  <% end %>
+  <% @user.posts.sort_by{|post| [post['updated_at']]}.reverse.each do |post| %>
+    <h3> <%= link_to post.title, user_post_path(@user, post) %> </h3>
+  <% end %>
+
+</div>
