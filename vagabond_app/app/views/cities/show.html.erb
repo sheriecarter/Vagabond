@@ -9,7 +9,7 @@
 
     <% end %>
 <% if current_user %>
-      Rate This City  : <%= rating_for @city, 'city', half_show: true, stars: 10,enable_half: true, hints: ['bad', 'poor', 'regular', 'good', 'super fun'],target: '#hintDiv',cancel_hint: 'Cancel this vote!'%>
+      Rate This City  : <%= rating_for @city, 'city', half_show: true, number: 10,enable_half: true, hints: ['bad', 'poor', 'regular', 'good', 'super fun'],target: '#hintDiv',cancel_hint: 'Cancel this vote!'%>
 <div id="hintDiv"></div>
 <% end %>
 </div>
