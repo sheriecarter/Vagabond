@@ -7,7 +7,7 @@
     </div>
       <h2 class="post-head"><%= @post.title %></h2>
     </div>
-    <div class="col-xs-4">
+    <div class="col-xs-4 timeStamps">
       <small>Created <%= @post.created_at.localtime.to_formatted_s(:long_ordinal) %></small>
       <br>
       <small><%= "Edited " + @post.updated_at.localtime.to_formatted_s(:long_ordinal) if @post.updated_at.to_s != @post.created_at.to_s %></small>
@@ -22,10 +22,10 @@
   <br>
   <div class="button-area">
   <% if @user == current_user %>
-    <%= button_to "Edit Post", edit_post_path, method: "get" %>
+    <%= button_to "Edit Post", edit_post_path, method: "get", class: "btn btn-warning" %>
   <% end %>
   <% if @user == current_user  ||admin %>
-    <%= button_to 'Delete Post', destroy_post_path(@post), method: :delete, data: {confirm: "Are you sure you want to delete #{ @post.title }?"} %>
+    <%= button_to 'Delete Post', destroy_post_path(@post), method: :delete, data: {confirm: "Are you sure you want to delete #{ @post.title }?"}, class: "btn btn-danger" %>
   <% end %>
   <br>
   </div>

@@ -1,21 +1,24 @@
-<div class="m-x-auto newuser" style="width: 400px;">
-<%= form_for @user do |f| %>
-  <div>
-    <span class="label label-default"></span><%= f.text_field :name, placeholder: "Full Name" %>
-  </div>
-  <br>
-  <div>
-    <span class="label label-default"></span><%= f.text_field :current_city, placeholder: "Current City" %>
-  </div>
-  <br>
-  <div>
-    <span class="label label-default"></span><%= f.text_field :email, placeholder: "Email" %>
-  </div>
-  <br>
-  <div>
-    <span class="label label-default"></span><%= f.password_field :password, placeholder: "Password" %>
-  </div>
-  <br>
-  <%= f.submit "Sign Up" %>
-<% end %>
+<div class="m-x-auto newuser" style="width: 300px; height: 325px;">
+
+  <h3>Sign Up</h3>
+
+  <%= form_for @user do |f| %>
+    <div>
+      <span class="label label-default"></span><%= f.text_field :name, placeholder: "Full Name", size: "35x10" %>
+    </div>
+    <br>
+    <div>
+      <span class="label label-default"></span><%= f.text_field :current_city, placeholder: "Current City", size: "35x10" %>
+    </div>
+    <br>
+    <div>
+      <span class="label label-default"></span><%= f.text_field :email, placeholder: "Email", size: "35x10" %>
+    </div>
+    <br>
+    <div>
+      <span class="label label-default"></span><%= f.password_field :password, placeholder: "Password", size: "35x10" %>
+    </div>
+    <br>
+    <div class="userSubmitButton"><%= f.submit "Submit", class: "btn btn-secondary" %></div>
+  <% end %>
 </div>
