@@ -1,5 +1,5 @@
 # üTravel
-Check out our app on <a href="https://stark-tundra-16200.herokuapp.com/"> Heroku
+Check out our app on <a href="http://utravel.herokuapp.com/"> Heroku
 ## Objective
 Our goal was to create a travel application built on relationships. The application allows users to sign up, login, and create posts that are attributed to different cities in the database. Each city has posts attributed to the cities. The posts describe different user experiences  related to the city. The cities have a one to many relationship with posts and the users have a one to many relationship with posts. We wanted to create a splash/landing page that displayed the name of the website, with a call to action and the necessary log in/sign up buttons. We knew that user authorization and authentication was necessary to recognize existing users, prevent faulty users, and to prevent the general public from editing/deleting content. We also wanted to create administrative privileges so that we can ban an email or delete any user's content if it's offensive or abusive.   
 ## Technologies Used
